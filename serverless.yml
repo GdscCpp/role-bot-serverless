@@ -1,0 +1,28 @@
+service: role-bot-serverless
+
+provider:
+  name: google
+  stage: dev
+  runtime: nodejs20
+  region: us-west1
+  project: gdsc-role-bot
+  credentials: ./credentials.json
+
+frameworkVersion: '3'
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-google-cloudfunctions
+
+package:
+  exclude:
+    - node_modules/**
+    - .gitignore
+    - .git/**
+
+functions:
+  role-assign:
+    handler: http
+    events:
+      - http: true
+

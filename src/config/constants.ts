@@ -1,0 +1,1 @@
+export const GOOGLE_SHEETS_ID = process.env.GOOGLE_SHEETS_ID;

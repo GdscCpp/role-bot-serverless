@@ -1,0 +1,22 @@
+{
+  "name": "role-bot-serverless",
+  "version": "0.1.0",
+  "description": "",
+  "main": "./.build/handler.js",
+  "scripts": {
+    "start": "tsc & npx functions-framework --target=http"
+  },
+  "author": "serverless.com",
+  "license": "MIT",
+  "devDependencies": {
+    "@google-cloud/functions-framework": "^3.3.0",
+    "@types/node": "^20.10.6",
+    "serverless-google-cloudfunctions": "*",
+    "serverless-plugin-typescript": "^2.1.5",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@google-cloud/local-auth": "2.1.0",
+    "googleapis": "105.0.0"
+  }
+}
