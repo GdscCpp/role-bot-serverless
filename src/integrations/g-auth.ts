@@ -2,15 +2,17 @@ import { google } from "googleapis";
 import { CredentialBody } from "google-auth-library";
 
 import { GOOGLE_CLIENT_EMAIL, GOOGLE_PRIVATE_KEY } from "../config/constants";
+import { GoogleAuth } from "googleapis-common";
 
 // from the google quick start guide:
 const SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
 
 /**
- * Load or request or authorization to call APIs.
+ * Integration function that authorizes the client with Google.
  *
+ * @returns {Promise<google.auth.GoogleAuth>} - the authorized client
  */
-export const authorize = async () => {
+export const authorize = async (): Promise<GoogleAuth> => {
   const credentials: CredentialBody = {
     client_email: GOOGLE_CLIENT_EMAIL,
     private_key: GOOGLE_PRIVATE_KEY,

@@ -10,6 +10,11 @@ const client: Client<true> = new Client({
   ],
 });
 
+/**
+ * Integration function that assigns roles to users based on their discord tags
+ *
+ * @param {string[]} tags - array of discord tags to assign roles to
+ */
 export const assignRoles = async (tags: string[]) => {
   //filter through results and assign roles
   console.log("Fetching users...");
@@ -41,6 +46,11 @@ export const assignRoles = async (tags: string[]) => {
   }
 };
 
+/**
+ * Integration function that runs the discord bot and assigns roles. A separate function is needed to run the bot because of Node async issues.
+ *
+ * @param tags - array of discord tags to assign roles to
+ */
 export const runDiscordBot = async (tags: string[]) => {
   await client.login(DISCORD_BOT_TOKEN);
   await assignRoles(tags);

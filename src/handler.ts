@@ -7,6 +7,12 @@ import { authorize } from "./integrations/g-auth";
 import { getDiscordTags } from "./integrations/g-sheets";
 import { runDiscordBot } from "./integrations/discord";
 
+/**
+ * Cloud http function that runs the discord bot and assigns roles
+ *
+ * @param {Request} req - the API request
+ * @param {Response} res - the API response
+ */
 export const http: HttpFunction = async (req: Request, res: Response) => {
   try {
     const client = await authorize();
