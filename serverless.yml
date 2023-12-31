@@ -8,7 +8,7 @@ provider:
   project: gdsc-role-bot
   credentials: ./credentials.json
 
-frameworkVersion: '3'
+frameworkVersion: "3"
 
 plugins:
   - serverless-plugin-typescript
@@ -25,4 +25,3 @@ functions:
     handler: http
     events:
       - http: true
-
