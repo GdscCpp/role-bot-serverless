@@ -3,9 +3,9 @@ import {
   Request,
   Response,
 } from "@google-cloud/functions-framework";
-import { authorize } from "./integrations/g-auth";
-import { getDiscordTags } from "./integrations/g-sheets";
-import { runDiscordBot } from "./integrations/discord";
+import { authorize } from "./src/integrations/g-auth";
+import { getDiscordTags } from "./src/integrations/g-sheets";
+import { runDiscordBot } from "./src/integrations/discord";
 
 /**
  * Cloud http function that runs the discord bot and assigns roles

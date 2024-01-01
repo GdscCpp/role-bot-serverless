@@ -16,31 +16,24 @@ const client: Client<true> = new Client({
  * @param {string[]} tags - array of discord tags to assign roles to
  */
 export const assignRoles = async (tags: string[]) => {
-  //filter through results and assign roles
-  console.log("Fetching users...");
-  let guild = await client.guilds.fetch(DISCORD_SERVER_ID);
-
-  //fetch roles
-  let role = guild.roles.cache.find((role) => role.name === "General Member");
-
   try {
-    // assign roles if necessary
+    const guild = await client.guilds.fetch(DISCORD_SERVER_ID);
+    const role = await guild.roles.fetch("1126205202488365137");
     const members = await guild.members.fetch();
 
     members.map((member) => {
       for (let i = 0; i < tags.length; i++) {
-        if (
+        // assign roles if necessary
+        const shouldAssignRole =
           (tags[i] + "#0" == member.user.tag || tags[i] == member.user.tag) &&
-          member.roles.cache.find((role) => role.name === "General Member") ===
-            undefined
-        ) {
-          member.roles.add(role!);
-          console.log("Role added for " + member.user.tag);
+          !member.roles.cache.some((role) => role.name === "General Member");
+
+        if (shouldAssignRole && role) {
+          member.roles.add(role);
+          console.log(`Role assigned to ${member.user.tag}`);
         }
       }
     });
-
-    console.log("Roles updated");
   } catch (error) {
     console.log(error);
   }

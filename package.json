@@ -2,11 +2,10 @@
   "name": "role-bot-serverless",
   "version": "0.1.0",
   "description": "",
-  "main": "./.build/handler.js",
+  "main": "index.js",
   "scripts": {
-    "build": "tsc",
-    "prestart": "npm run build",
-    "start": "npx functions-framework --target=http"
+    "deploy": "sls deploy",
+    "test": "sls invoke local -f role-assign"
   },
   "author": "serverless.com",
   "license": "MIT",
@@ -19,6 +18,7 @@
   },
   "dependencies": {
     "@google-cloud/local-auth": "2.1.0",
+    "@types/google-apps-script": "^1.0.78",
     "discord.js": "14.14.1",
     "dotenv": "16.3.1",
     "googleapis": "105.0.0"

@@ -6,11 +6,12 @@ tmp
 
 # Google
 keyfile.json
+credentials.json
 
 # secrets
 .env
-.env.yaml
 credentials.json
+.clasp.json
 
 # Logs
 *.log
