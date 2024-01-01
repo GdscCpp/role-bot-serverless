@@ -4,7 +4,6 @@ import { CredentialBody } from "google-auth-library";
 import { GOOGLE_CLIENT_EMAIL, GOOGLE_PRIVATE_KEY } from "../config/constants";
 import { GoogleAuth } from "googleapis-common";
 
-// from the google quick start guide:
 const SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
 
 /**
